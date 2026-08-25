@@ -16,7 +16,7 @@ spec:
     metadata:
       name: mangalodon-{{ .path.filename | trimSuffix ".yaml" }}
     spec:
-      project: mangalodon
+      project: default
       source:
         repoURL: https://github.com/Peerapon966/mangalodon
         targetRevision: HEAD

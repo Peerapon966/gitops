@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: mangalodon
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/Peerapon966/gitops
+        revision: HEAD
+        files:
+          - path: apps/mangalodon/values/*.yaml
+  template:
+    metadata:
+      name: mangalodon-{{ .path.filename | trimSuffix ".yaml" }}
+    spec:
+      project: mangalodon
+      source:
+        repoURL: https://github.com/Peerapon966/mangalodon
+        targetRevision: HEAD
+        path: helm-chart
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: mangalodon-{{ .path.filename | trimSuffix ".yaml" }}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          enabled: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - ApplyOutOfSyncOnly=true

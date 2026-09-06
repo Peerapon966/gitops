@@ -1,0 +1,12 @@
+mangalodon:
+  frontend:
+    image:
+      repository: "741448960615.dkr.ecr.ap-southeast-1.amazonaws.com/mangalodon/staging/frontend"
+  apiservice:
+    image:
+      repository: "741448960615.dkr.ecr.ap-southeast-1.amazonaws.com/mangalodon/staging/apiservice"
+  scrapeservice:
+    image:
+      repository: "741448960615.dkr.ecr.ap-southeast-1.amazonaws.com/mangalodon/staging/scrapeservice"
+  ingress:
+    host: "mangalodon-staging.com"

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: mangalodon
+version: 1.0.0
+dependencies:
+  - name: mangalodon
+    version: 0.0.1-alpha
+    repository: "https://Peerapon966.github.io/mangalodon"

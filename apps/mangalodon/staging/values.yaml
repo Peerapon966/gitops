@@ -8,5 +8,7 @@ mangalodon:
   scrapeservice:
     image:
       repository: "741448960615.dkr.ecr.ap-southeast-1.amazonaws.com/mangalodon/staging/scrapeservice"
+  postgres:
+    vaultSecretPath: kv/mangalodon/staging/postgres/login-secret
   ingress:
     host: "mangalodon-staging.com"

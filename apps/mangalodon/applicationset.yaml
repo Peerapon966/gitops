@@ -21,12 +21,9 @@ spec:
         - repoURL: https://github.com/Peerapon966/gitops
           targetRevision: HEAD
           path: apps/mangalodon/{{ .path.basename }}
-          helm:
-            valueFiles:
-              - apps/mangalodon/{{ .path.basename }}/values.yaml
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: mangalodon-{{ .path.filename | trimSuffix ".yaml" }}
+        namespace: mangalodon-{{ .path.basename }}
       syncPolicy:
         automated:
           prune: true

@@ -3,5 +3,5 @@ name: mangalodon
 version: 1.0.0
 dependencies:
   - name: mangalodon
-    version: 0.0.1-alpha
+    version: 0.0.1-beta
     repository: "https://Peerapon966.github.io/mangalodon"

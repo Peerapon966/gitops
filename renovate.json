@@ -5,8 +5,8 @@
   ],
   "platformAutomerge": true,
   "helmv3": {
-    "fileMatch": [
-      "(^|/)Chart\\.yaml$"
+    "managerFilePatterns": [
+      "/(^|/)Chart\\.yaml$/"
     ]
   },
   "packageRules": [

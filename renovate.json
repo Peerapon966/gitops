@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "platformAutomerge": true,
   "helmv3": {
     "fileMatch": [
       "(^|/)Chart\\.yaml$"
@@ -14,6 +15,15 @@
         "helm"
       ],
       "ignoreUnstable": false
+    },
+    {
+      "description": "Auto-merge non-prod environments",
+      "excludeFileNames": [
+        "**/*prod*/**",
+        "**/*production*/**"
+      ],
+      "automerge": true,
+      "automergeType": "pr"
     }
   ]
 }

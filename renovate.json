@@ -18,9 +18,9 @@
     },
     {
       "description": "Auto-merge non-prod environments",
-      "excludeFileNames": [
-        "**/*prod*/**",
-        "**/*production*/**"
+      "matchFileNames": [
+        "!**/*prod*/**",
+        "!**/*production*/**"
       ],
       "automerge": true,
       "automergeType": "pr"

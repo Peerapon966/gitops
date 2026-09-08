@@ -2,5 +2,18 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "helmv3": {
+    "fileMatch": [
+      "(^|/)Chart\\.yaml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "ignoreUnstable": false
+    }
   ]
 }

@@ -14,7 +14,7 @@ spec:
           - path: apps/mangalodon/*/*
   template:
     metadata:
-      name: "mangalodon-{{ index .path.segment 2 }}"
+      name: "mangalodon-{{ index .path.segments 2 }}"
     spec:
       project: default
       sources:

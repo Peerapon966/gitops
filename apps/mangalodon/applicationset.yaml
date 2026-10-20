@@ -10,17 +10,17 @@ spec:
     - git:
         repoURL: https://github.com/Peerapon966/gitops
         revision: HEAD
-        files:
+        directories:
           - path: apps/mangalodon/*/*
   template:
     metadata:
-      name: mangalodon-{{ index .path.segment 2 }}
+      name: "mangalodon-{{ index .path.segment 2 }}"
     spec:
       project: default
       sources:
         - repoURL: https://github.com/Peerapon966/gitops
           targetRevision: HEAD
-          path: {{ .path.path }}
+          path: "{{ .path.path }}"
       destination:
-        server: "https://kubernetes.default.svc"
+        server: https://kubernetes.default.svc
         namespace: argocd

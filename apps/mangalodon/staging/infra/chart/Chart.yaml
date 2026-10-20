@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mangalodon-infra
+version: 1.0.0
+dependencies:
+  - name: cngp-cluster
+    version: 1.0.0
+    repository: "https://Peerapon966.github.io/helm-charts"
+  - name: rabbitmq-cluster
+    version: 1.0.0
+    repository: "https://Peerapon966.github.io/helm-charts"

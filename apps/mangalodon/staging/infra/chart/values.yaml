@@ -1,0 +1,34 @@
+cnpg-cluster:
+  postgres:
+    vaultSecretPath: mangalodon/staging/postgres/user/postgres
+  initdb:
+    database: mangalodon
+    owner:
+      username: admin
+      vaultSecretPath: mangalodon/staging/postgres/user/admin
+  roles:
+    app:
+      username: app
+      vaultSecretPath: mangalodon/staging/postgres/user/app
+      login: true
+      superuser: false
+      inRoles:
+        - pg_monitor
+        - pg_signal_backend
+  vault:
+    auth:
+      role: mangalodon-postgres-staging
+
+rabbitmq-cluster:
+  vaultSecretPath:
+    defaultUser: mangalodon/staging/rabbitmq/user
+  resources:
+  vhost:
+    - name: mangalodon
+  queue:
+    - name: scrape-task
+      vhost: mangalodon
+      type: quorum
+  vault:
+    auth:
+      role: mangalodon-rabbitmq-staging

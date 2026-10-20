@@ -11,10 +11,10 @@ spec:
         repoURL: https://github.com/Peerapon966/gitops
         revision: HEAD
         directories:
-          - path: apps/mangalodon/*/*
+          - path: apps/mangalodon/*
   template:
     metadata:
-      name: "mangalodon-{{ index .path.segments 2 }}"
+      name: "mangalodon-{{ .path.basename }}"
     spec:
       project: default
       sources:

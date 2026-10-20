@@ -1,22 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mangalodon-staging-app
+  name: mangalodon-staging-infra
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/Peerapon966/gitops
-    path: apps/mangalodon/staging/app/chart
+    path: apps/mangalodon/staging/chart/infra
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: mangalodon-staging
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
       enabled: true
     syncOptions:
